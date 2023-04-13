@@ -672,23 +672,26 @@ body {
 }
 .navigation__button {
   background: #fff;
-  height: 9rem;
-  width: 9rem;
+  height: 8rem;
+  width: 8rem;
   border-radius: 50%;
   position: fixed;
-  top: 7rem;
-  right: 7rem;
+  top: 10rem;
+  right: 10rem;
   z-index: 200;
+  text-align: center;
+  cursor: pointer;
 }
 .navigation__background {
-  width: 7rem;
-  height: 7rem;
+  width: 6rem;
+  height: 6rem;
   border-radius: 50%;
   background: radial-gradient(#BA8554, #A14F03);
   position: fixed;
-  right: 8rem;
-  top: 8rem;
+  right: 11rem;
+  top: 11rem;
   z-index: 100;
+  transition: all 0.7s;
 }
 .navigation__nav {
   height: 100vh;
@@ -698,7 +701,7 @@ body {
   z-index: 150;
   opacity: 0;
   width: 0;
-  transition: all 0.7s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  transition: all 0.3s cubic-bezier(0.68, -0.6, 0.32, 1.6);
 }
 .navigation__list {
   position: absolute;
@@ -728,6 +731,7 @@ body {
 }
 .navigation__link:hover, .navigation__link:active {
   background-position: 100%;
+  color: #A14F03;
   transform: translateX(1rem);
 }
 .navigation__toggle:checked ~ .navigation__background {
@@ -736,4 +740,43 @@ body {
 .navigation__toggle:checked ~ .navigation__nav {
   width: 100%;
   opacity: 1;
+}
+.navigation__icon {
+  position: relative;
+  margin-top: 38px;
+}
+.navigation__icon, .navigation__icon::before, .navigation__icon::after {
+  width: 30px;
+  height: 2px;
+  background: #000000;
+  display: inline-block;
+}
+.navigation__icon::before, .navigation__icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  transition: all 0.2s;
+}
+.navigation__icon::before {
+  top: -8px;
+}
+.navigation__icon::after {
+  top: 8px;
+}
+.navigation__button:hover .navigation__icon::before {
+  top: -10px;
+}
+.navigation__button:hover .navigation__icon::after {
+  top: 10px;
+}
+.navigation__toggle:checked + .navigation__button .navigation__icon {
+  background: transparent;
+}
+.navigation__toggle:checked + .navigation__button .navigation__icon::before {
+  top: 0;
+  transform: rotate(135deg);
+}
+.navigation__toggle:checked + .navigation__button .navigation__icon::after {
+  top: 0;
+  transform: rotate(-135deg);
 }/*# sourceMappingURL=style.css.map */
